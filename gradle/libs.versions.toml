@@ -1,0 +1,54 @@
+[versions]
+kotlin = "2.0.20"
+koin = "4.0.0"
+ktor = "3.0.1"
+logback = "1.5.6"
+firebaseAdmin = "9.4.2"
+mockk = "1.13.12"
+kotest = "5.8.0"
+
+[libraries]
+firebase-admin = {module = "com.google.firebase:firebase-admin", version.ref = "firebaseAdmin"}
+koin-logger = { module = "io.insert-koin:koin-logger-slf4j", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
+
+ktor-server-caching-headers = { module = "io.ktor:ktor-server-caching-headers", version.ref = "ktor" }
+ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages", version.ref = "ktor" }
+ktor-server-core-jvm = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "ktor" }
+ktor-server-netty-jvm = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-cors-jvm = { module = "io.ktor:ktor-server-cors-jvm", version.ref = "ktor" }
+ktor-server-caching-headers-jvm = { module = "io.ktor:ktor-server-caching-headers-jvm", version.ref = "ktor" }
+ktor-server-host-common-jvm = { module = "io.ktor:ktor-server-host-common-jvm", version.ref = "ktor" }
+ktor-server-status-pages-jvm = { module = "io.ktor:ktor-server-status-pages-jvm", version.ref = "ktor" }
+ktor-server-double-receive-jvm = { module = "io.ktor:ktor-server-double-receive-jvm", version.ref = "ktor" }
+ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "ktor" }
+ktor-server-auth-jwt = { module = "io.ktor:ktor-server-auth-jwt", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
+ktor-server-openapi-jvm = { module = "io.ktor:ktor-server-openapi-jvm", version.ref = "ktor" }
+
+ktor-client-core-jvm = { module = "io.ktor:ktor-client-core-jvm", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-logging-jvm = { module = "io.ktor:ktor-client-logging-jvm", version.ref = "ktor" }
+ktor-client-content-negotiation-jvm = { module = "io.ktor:ktor-client-content-negotiation-jvm", version.ref = "ktor" }
+
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+ktor-server-tests-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor" }
+ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+
+[bundles]
+testAll = ["kotest-runner-junit5", "kotest-assertions-core", "kotlin-test-junit", "ktor-server-tests-host", "mockk", "ktor-client-mock"]
+koin = ["koin-logger", "koin-ktor"]
+ktorServer = ["ktor-server-caching-headers", "ktor-server-status-pages", "ktor-server-core-jvm", "ktor-server-content-negotiation", "ktor-server-netty-jvm", "ktor-server-cors-jvm", "ktor-server-caching-headers-jvm", "ktor-server-host-common-jvm", "ktor-server-status-pages-jvm", "ktor-server-double-receive-jvm", "ktor-server-auth-jwt", "ktor-server-auth", "ktor-serialization"]
+ktorClient = ["ktor-client-core", "ktor-client-cio", "ktor-client-core-jvm", "ktor-client-logging-jvm", "ktor-client-content-negotiation-jvm"]
+logging = ["logback-classic"]
+
+[plugins]
+ktor = { id = "io.ktor.plugin", version.ref = "ktor"}
+kotlin = { id = "jvm", version.ref = "kotlin" }

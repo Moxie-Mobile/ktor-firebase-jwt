@@ -1,0 +1,27 @@
+### Login with Firebase using email + password
+
+POST https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={{firebase-web-api-key}}
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}",
+  "returnSecureToken": true
+}
+
+> {%
+    let idToken = response.body.idToken
+    let localId = response.body.localId
+    client.log("idToken: " + idToken)
+    client.global.set("idToken", idToken)
+    client.global.set("localId", localId)
+%}
+
+### Non-secure route
+
+GET localhost:8080/
+
+### Secured route
+
+GET localhost:8080/secured
+Authorization: Bearer {{idToken}}
